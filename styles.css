@@ -1,0 +1,587 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6c5ce7;
+    --primary-dark: #5541d7;
+    --secondary: #00cec9;
+    --background: #1a1a2e;
+    --surface: #16213e;
+    --surface-light: #1f3460;
+    --text: #ffffff;
+    --text-secondary: #a0a0a0;
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --danger: #e17055;
+    --border-radius: 12px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.header-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    background: var(--surface);
+    border-bottom: 1px solid var(--surface-light);
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.tab.active {
+    color: var(--primary);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 15px;
+    padding-bottom: 100px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Day Selector */
+.day-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.day-btn {
+    flex: 1;
+    padding: 12px 8px;
+    background: var(--surface);
+    border: 2px solid var(--surface-light);
+    border-radius: var(--border-radius);
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.day-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.day-btn.completed {
+    border-color: var(--success);
+    position: relative;
+}
+
+.day-btn.completed::after {
+    content: '\2713';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--success);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Selector Row */
+.selector-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.selector-row select {
+    flex: 1;
+    padding: 12px;
+    background: var(--surface);
+    border: 1px solid var(--surface-light);
+    border-radius: var(--border-radius);
+    color: var(--text);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Exercise List */
+.exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exercise-card {
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.exercise-card:active {
+    transform: scale(0.98);
+}
+
+.exercise-card.completed {
+    border-color: var(--success);
+    opacity: 0.8;
+}
+
+.exercise-card.completed .exercise-name::before {
+    content: '\2713 ';
+    color: var(--success);
+}
+
+.exercise-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.exercise-details {
+    display: flex;
+    gap: 15px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.exercise-details span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.exercise-weight {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--surface-light);
+    font-size: 0.85rem;
+    color: var(--secondary);
+}
+
+/* Complete Button */
+.btn-complete {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--success), #00a884);
+    border: none;
+    border-radius: var(--border-radius);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.btn-complete:active {
+    transform: scale(0.98);
+}
+
+.btn-complete:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--surface);
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--surface-light);
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+}
+
+.modal-header h3 {
+    font-size: 1.1rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.exercise-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    text-align: center;
+}
+
+.info-item .label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.info-item .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.sets-tracking h4 {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.sets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.set-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--background);
+    padding: 12px;
+    border-radius: var(--border-radius);
+}
+
+.set-number {
+    min-width: 50px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.set-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.set-input label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.set-input input {
+    width: 100%;
+    padding: 10px;
+    background: var(--surface);
+    border: 1px solid var(--surface-light);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.set-input input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.notes-section {
+    margin-top: 20px;
+}
+
+.notes-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.notes-section textarea {
+    width: 100%;
+    padding: 12px;
+    background: var(--background);
+    border: 1px solid var(--surface-light);
+    border-radius: var(--border-radius);
+    color: var(--text);
+    font-size: 0.9rem;
+    min-height: 80px;
+    resize: vertical;
+}
+
+.notes-section textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid var(--surface-light);
+}
+
+.btn-save {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary);
+    border: none;
+    border-radius: var(--border-radius);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-save:active {
+    background: var(--primary-dark);
+}
+
+/* History */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.history-item {
+    background: var(--surface);
+    padding: 15px;
+    border-radius: var(--border-radius);
+}
+
+.history-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.history-workout {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.history-exercises {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Progress */
+.exercise-select {
+    width: 100%;
+    padding: 12px;
+    background: var(--surface);
+    border: 1px solid var(--surface-light);
+    border-radius: var(--border-radius);
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.progress-chart {
+    background: var(--surface);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    min-height: 200px;
+}
+
+.progress-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--surface-light);
+}
+
+.progress-entry:last-child {
+    border-bottom: none;
+}
+
+.progress-date {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.progress-weight {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.no-data {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px;
+}
+
+/* Section title */
+.tab-content h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-light);
+    border-radius: 4px;
+}
+
+/* iOS safe area */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .content {
+        padding-bottom: calc(100px + env(safe-area-inset-bottom));
+    }
+}
+
+/* Steps Card */
+.steps-card {
+    background: linear-gradient(135deg, #00b894, #00a884);
+    border-radius: var(--border-radius);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.steps-icon {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.steps-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.steps-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.steps-count {
+    font-size: 1.5rem;
+    font-weight: 700;
+}

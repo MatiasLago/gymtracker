@@ -1,0 +1,101 @@
+{
+  "workouts": {
+    "m1w1d1": {
+      "0": {
+        "sets": [
+          {
+            "weight": 60,
+            "reps": null
+          },
+          {
+            "weight": 70,
+            "reps": 5
+          },
+          {
+            "weight": 70,
+            "reps": 5
+          }
+        ],
+        "notes": "",
+        "completed": true,
+        "date": "2026-01-19T19:28:03.524Z"
+      },
+      "1": {
+        "sets": [
+          {
+            "weight": 40,
+            "reps": 10
+          },
+          {
+            "weight": 60,
+            "reps": 5
+          },
+          {
+            "weight": 40,
+            "reps": 10
+          }
+        ],
+        "notes": "Dolor fuerte en el pecho el cual no me dejo terminar el entrenamiento",
+        "completed": true,
+        "date": "2026-01-19T19:29:54.189Z"
+      },
+      "2": {
+        "sets": [
+          {
+            "weight": 0,
+            "reps": 0
+          },
+          {
+            "weight": 0,
+            "reps": 0
+          },
+          {
+            "weight": 0,
+            "reps": 0
+          }
+        ],
+        "notes": "",
+        "completed": true,
+        "date": "2026-01-19T19:29:14.757Z"
+      },
+      "3": {
+        "sets": [
+          {
+            "weight": 0,
+            "reps": 0
+          },
+          {
+            "weight": 0,
+            "reps": 0
+          }
+        ],
+        "notes": "",
+        "completed": true,
+        "date": "2026-01-19T19:30:05.337Z"
+      },
+      "4": {
+        "sets": [
+          {
+            "weight": 10,
+            "reps": 12
+          },
+          {
+            "weight": 12.5,
+            "reps": 12
+          }
+        ],
+        "notes": "",
+        "completed": true,
+        "date": "2026-01-19T19:30:26.573Z"
+      }
+    }
+  },
+  "completedDays": {
+    "m1w1d1": [
+      {
+        "date": "2026-01-19",
+        "timestamp": "2026-01-19T19:30:27.894Z"
+      }
+    ]
+  }
+}

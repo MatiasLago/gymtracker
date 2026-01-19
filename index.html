@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='32' height='32' rx='6' fill='%236c5ce7'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-weight='bold'>G</text></svg>">
+    <title>GymTracker - Tu Rutina</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <h1>GymTracker</h1>
+            <div class="header-info">
+                <span id="currentMesociclo">Mesociclo 1</span>
+                <span id="currentWeek">Semana 1</span>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="workout">Entreno</button>
+            <button class="tab" data-tab="history">Historial</button>
+            <button class="tab" data-tab="progress">Progreso</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Workout Tab -->
+            <section id="workout-tab" class="tab-content active">
+                <!-- Steps Card -->
+                <div id="stepsCard" class="steps-card">
+                    <div class="steps-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M13.5,5.5C14.59,5.5 15.5,4.58 15.5,3.5C15.5,2.38 14.59,1.5 13.5,1.5C12.39,1.5 11.5,2.38 11.5,3.5C11.5,4.58 12.39,5.5 13.5,5.5M9.89,19.38L10.89,15L13,17V23H15V15.5L12.89,13.5L13.5,10.5C14.79,12 16.79,13 19,13V11C17.09,11 15.5,10 14.69,8.58L13.69,7C13.29,6.38 12.69,6 12,6C11.69,6 11.5,6.08 11.19,6.08L6,8.28V13H8V9.58L9.79,8.88L8.19,17L3.29,16L2.89,18L9.89,19.38Z"/>
+                        </svg>
+                    </div>
+                    <div class="steps-info">
+                        <span class="steps-label">Pasos de hoy</span>
+                        <span id="todaySteps" class="steps-count">--</span>
+                    </div>
+                </div>
+
+                <!-- Day Selector -->
+                <div class="day-selector">
+                    <button class="day-btn active" data-day="1">Dia 1</button>
+                    <button class="day-btn" data-day="2">Dia 2</button>
+                    <button class="day-btn" data-day="3">Dia 3</button>
+                    <button class="day-btn" data-day="4">Dia 4</button>
+                </div>
+
+                <!-- Mesociclo/Week Selector -->
+                <div class="selector-row">
+                    <select id="mesocicloSelect">
+                        <option value="1">Mesociclo 1</option>
+                        <option value="2">Mesociclo 2</option>
+                        <option value="3">Mesociclo 3</option>
+                    </select>
+                    <select id="weekSelect">
+                        <option value="1">Semana 1</option>
+                        <option value="2">Semana 2</option>
+                        <option value="3">Semana 3</option>
+                        <option value="4">Semana 4</option>
+                    </select>
+                </div>
+
+                <!-- Exercise List -->
+                <div id="exerciseList" class="exercise-list">
+                    <!-- Exercises will be loaded here -->
+                </div>
+
+                <!-- Complete Workout Button -->
+                <button id="completeWorkout" class="btn-complete">
+                    Completar Entrenamiento
+                </button>
+            </section>
+
+            <!-- History Tab -->
+            <section id="history-tab" class="tab-content">
+                <h2>Historial de Entrenamientos</h2>
+                <div id="historyList" class="history-list">
+                    <!-- History entries will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Progress Tab -->
+            <section id="progress-tab" class="tab-content">
+                <h2>Progreso por Ejercicio</h2>
+                <select id="exerciseProgressSelect" class="exercise-select">
+                    <!-- Exercise options will be loaded here -->
+                </select>
+                <div id="progressChart" class="progress-chart">
+                    <!-- Progress data will be shown here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Exercise Modal -->
+    <div id="exerciseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalExerciseName">Ejercicio</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="exercise-info">
+                    <div class="info-item">
+                        <span class="label">Sets</span>
+                        <span id="modalSets" class="value">3</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Reps</span>
+                        <span id="modalReps" class="value">10</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">RPE</span>
+                        <span id="modalRPE" class="value">8</span>
+                    </div>
+                </div>
+
+                <div class="sets-tracking">
+                    <h4>Registrar Sets</h4>
+                    <div id="setsContainer" class="sets-container">
+                        <!-- Sets inputs will be generated here -->
+                    </div>
+                </div>
+
+                <div class="notes-section">
+                    <label for="exerciseNotes">Notas:</label>
+                    <textarea id="exerciseNotes" placeholder="Notas del ejercicio..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveExercise" class="btn-save">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
