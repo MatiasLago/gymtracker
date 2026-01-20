@@ -5,45 +5,45 @@
 }
 
 :root {
-    /* Modo claro por defecto */
+    /* Modo claro - con colores */
     --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f7;
-    --bg-tertiary: #e8e8ed;
-    --text-primary: #1d1d1f;
-    --text-secondary: #6e6e73;
-    --text-tertiary: #86868b;
-    --accent: #007aff;
-    --accent-secondary: #34c759;
-    --border: rgba(0, 0, 0, 0.08);
-    --shadow: rgba(0, 0, 0, 0.04);
+    --bg-secondary: #f7f7f7;
+    --bg-tertiary: #ebebeb;
+    --text-primary: #111111;
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+    --accent: #3b82f6;
+    --accent-secondary: #6366f1;
+    --border: rgba(0, 0, 0, 0.1);
+    --shadow: rgba(0, 0, 0, 0.05);
     --card-bg: #ffffff;
-    --input-bg: #f5f5f7;
-    --overlay: rgba(0, 0, 0, 0.4);
-    --success: #34c759;
-    --warning: #ff9500;
-    --danger: #ff3b30;
-    --border-radius: 16px;
-    --border-radius-sm: 12px;
+    --input-bg: #f7f7f7;
+    --overlay: rgba(0, 0, 0, 0.5);
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
     --transition: 0.2s ease;
 }
 
 [data-theme="dark"] {
-    --bg-primary: #000000;
-    --bg-secondary: #1c1c1e;
-    --bg-tertiary: #2c2c2e;
-    --text-primary: #ffffff;
-    --text-secondary: #98989d;
-    --text-tertiary: #636366;
-    --accent: #0a84ff;
-    --accent-secondary: #30d158;
-    --border: rgba(255, 255, 255, 0.08);
-    --shadow: rgba(0, 0, 0, 0.3);
-    --card-bg: #1c1c1e;
-    --input-bg: #2c2c2e;
-    --overlay: rgba(0, 0, 0, 0.7);
-    --success: #30d158;
-    --warning: #ff9f0a;
-    --danger: #ff453a;
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-tertiary: #1f1f1f;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a0a0a0;
+    --text-tertiary: #666666;
+    --accent: #60a5fa;
+    --accent-secondary: #818cf8;
+    --border: rgba(255, 255, 255, 0.1);
+    --shadow: rgba(0, 0, 0, 0.4);
+    --card-bg: #141414;
+    --input-bg: #1f1f1f;
+    --overlay: rgba(0, 0, 0, 0.8);
+    --success: #4ade80;
+    --warning: #fbbf24;
+    --danger: #f87171;
 }
 
 body {
