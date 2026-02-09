@@ -35,6 +35,7 @@
         <!-- Navigation Tabs -->
         <nav class="tabs">
             <button class="tab active" data-tab="workout">Entreno</button>
+            <button class="tab" data-tab="streak">Racha</button>
             <button class="tab" data-tab="history">Historial</button>
             <button class="tab" data-tab="progress">Progreso</button>
         </nav>
@@ -88,6 +89,33 @@
                 <button id="completeWorkout" class="btn-complete">
                     Completar Entrenamiento
                 </button>
+            </section>
+
+            <!-- Streak Tab -->
+            <section id="streak-tab" class="tab-content">
+                <div id="streakCard" class="streak-card">
+                    <div class="streak-main">
+                        <div class="streak-fire">
+                            <svg viewBox="0 0 24 24" width="48" height="48">
+                                <defs>
+                                    <linearGradient id="fireGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#ff6b35"/>
+                                        <stop offset="100%" style="stop-color:#ffd700"/>
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#fireGrad)" d="M13.5,0.67s0.74,2.65,0.74,4.8c0,2.06-1.35,3.73-3.41,3.73-2.07,0-3.63-1.67-3.63-3.73l0.03-0.36C5.21,7.51,4,10.62,4,14c0,4.42,3.58,8,8,8s8-3.58,8-8C20,8.61,17.41,3.8,13.5,0.67zM11.71,19c-1.78,0-3.22-1.4-3.22-3.14c0-1.62,1.05-2.76,2.81-3.12c1.77-0.36,3.6-1.21,4.62-2.58c0.39,1.29,0.59,2.65,0.59,4.04c0,2.65-2.15,4.8-4.8,4.8z"/>
+                            </svg>
+                        </div>
+                        <div class="streak-info">
+                            <span class="streak-count" id="streakCount">0</span>
+                            <span class="streak-label">días de racha</span>
+                        </div>
+                    </div>
+                    <div class="streak-best" id="streakBest">Mejor racha: 0 días</div>
+                    <div class="streak-week" id="streakWeek">
+                        <!-- 7 días renderizados por JS -->
+                    </div>
+                </div>
             </section>
 
             <!-- History Tab -->

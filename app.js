@@ -653,6 +653,12 @@ function completeWorkout() {
     saveData(data);
     updateCompletedDaysUI();
     renderHistory();
+    renderStreakCard();
+
+    // Animación de celebración
+    const streakCard = document.getElementById('streakCard');
+    streakCard.classList.add('streak-celebrate');
+    setTimeout(() => streakCard.classList.remove('streak-celebrate'), 600);
 
     alert('Entrenamiento completado!');
 }
@@ -799,6 +805,132 @@ function renderProgress() {
     }).join('');
 }
 
+// Calcular racha de entrenamiento
+function calculateStreak() {
+    const data = loadSavedData();
+    const dateSet = new Set();
+
+    // Extraer todas las fechas únicas de completedDays
+    Object.values(data.completedDays || {}).forEach(completions => {
+        completions.forEach(c => {
+            if (c.date) dateSet.add(c.date);
+        });
+    });
+
+    if (dateSet.size === 0) {
+        return { currentStreak: 0, bestStreak: 0, lastWorkoutDate: null };
+    }
+
+    // Ordenar fechas de más reciente a más antigua
+    const dates = Array.from(dateSet).sort((a, b) => new Date(b) - new Date(a));
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const mostRecent = new Date(dates[0]);
+    mostRecent.setHours(0, 0, 0, 0);
+
+    const daysSinceLast = Math.floor((today - mostRecent) / (1000 * 60 * 60 * 24));
+
+    // Si pasaron más de 2 días desde el último entrenamiento, racha actual = 0
+    let currentStreak = 0;
+    if (daysSinceLast <= 2) {
+        currentStreak = 1;
+        for (let i = 0; i < dates.length - 1; i++) {
+            const current = new Date(dates[i]);
+            const next = new Date(dates[i + 1]);
+            current.setHours(0, 0, 0, 0);
+            next.setHours(0, 0, 0, 0);
+            const gap = Math.floor((current - next) / (1000 * 60 * 60 * 24));
+            if (gap <= 2) {
+                currentStreak++;
+            } else {
+                break;
+            }
+        }
+    }
+
+    // Calcular mejor racha histórica
+    let bestStreak = 1;
+    let tempStreak = 1;
+    for (let i = 0; i < dates.length - 1; i++) {
+        const current = new Date(dates[i]);
+        const next = new Date(dates[i + 1]);
+        current.setHours(0, 0, 0, 0);
+        next.setHours(0, 0, 0, 0);
+        const gap = Math.floor((current - next) / (1000 * 60 * 60 * 24));
+        if (gap <= 2) {
+            tempStreak++;
+        } else {
+            tempStreak = 1;
+        }
+        if (tempStreak > bestStreak) bestStreak = tempStreak;
+    }
+
+    if (currentStreak > bestStreak) bestStreak = currentStreak;
+
+    return { currentStreak, bestStreak, lastWorkoutDate: dates[0] };
+}
+
+// Generar datos del calendario semanal (últimos 7 días)
+function getWeekCalendarData() {
+    const data = loadSavedData();
+    const dateSet = new Set();
+
+    Object.values(data.completedDays || {}).forEach(completions => {
+        completions.forEach(c => {
+            if (c.date) dateSet.add(c.date);
+        });
+    });
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const dayOfWeek = today.getDay(); // 0=Dom, 1=Lun, ...
+    // Calcular el lunes de esta semana
+    const monday = new Date(today);
+    monday.setDate(today.getDate() - ((dayOfWeek + 6) % 7));
+
+    const dayLabels = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+    const week = [];
+
+    for (let i = 0; i < 7; i++) {
+        const d = new Date(monday);
+        d.setDate(monday.getDate() + i);
+        const dateStr = d.toISOString().split('T')[0];
+        const isToday = d.getTime() === today.getTime();
+        week.push({
+            dayLabel: dayLabels[i],
+            date: dateStr,
+            hasWorkout: dateSet.has(dateStr),
+            isToday
+        });
+    }
+
+    return week;
+}
+
+// Renderizar streak card
+function renderStreakCard() {
+    const { currentStreak, bestStreak } = calculateStreak();
+    const weekData = getWeekCalendarData();
+
+    document.getElementById('streakCount').textContent = currentStreak;
+    document.getElementById('streakBest').textContent = `Mejor racha: ${bestStreak} días`;
+
+    const weekContainer = document.getElementById('streakWeek');
+    weekContainer.innerHTML = weekData.map(day => {
+        const classes = ['streak-day'];
+        if (day.hasWorkout) classes.push('active');
+        if (day.isToday) classes.push('today');
+
+        return `
+            <div class="${classes.join(' ')}">
+                <span class="streak-day-label">${day.dayLabel}</span>
+                <div class="streak-day-dot"></div>
+            </div>
+        `;
+    }).join('');
+}
+
 // Actualizar header
 function updateHeader() {
     document.getElementById('currentMesociclo').textContent = `Mesociclo ${state.currentMesociclo}`;
@@ -816,7 +948,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.classList.add('active');
             document.getElementById(`${tab.dataset.tab}-tab`).classList.add('active');
 
-            if (tab.dataset.tab === 'history') {
+            if (tab.dataset.tab === 'streak') {
+                renderStreakCard();
+            } else if (tab.dataset.tab === 'history') {
                 renderHistory();
             } else if (tab.dataset.tab === 'progress') {
                 renderExerciseSelect();
@@ -867,11 +1001,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     updateHeader();
     renderExercises();
+    renderStreakCard();
 
     // Sincronizar con servidor
     syncWithServer().then(() => {
         renderExercises();
         updateCompletedDaysUI();
+        renderStreakCard();
     });
 
     // Cargar pasos
