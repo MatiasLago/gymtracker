@@ -1,10 +1,25 @@
-const CACHE_NAME = 'gymtracker-v1';
+const CACHE_NAME = 'gymtracker-v2';
 const urlsToCache = [
     '/',
     '/index.html',
     '/styles.css',
-    '/app.js',
-    '/manifest.json'
+    '/manifest.json',
+    '/lib/chart.min.js',
+    '/js/main.js',
+    '/js/data/routineData.js',
+    '/js/state/appState.js',
+    '/js/services/storage.js',
+    '/js/services/api.js',
+    '/js/services/notifications.js',
+    '/js/ui/exercises.js',
+    '/js/ui/history.js',
+    '/js/ui/historyEditor.js',
+    '/js/ui/progress.js',
+    '/js/ui/streak.js',
+    '/js/ui/workout.js',
+    '/js/ui/theme.js',
+    '/js/ui/modal.js',
+    '/js/ui/records.js'
 ];
 
 // Install
@@ -39,6 +54,23 @@ self.addEventListener('activate', event => {
                     return caches.delete(cacheName);
                 })
             );
+        })
+    );
+});
+
+// Notification click handler
+self.addEventListener('notificationclick', event => {
+    event.notification.close();
+    event.waitUntil(
+        clients.matchAll({ type: 'window', includeUncontrolled: true }).then(clientList => {
+            for (const client of clientList) {
+                if (client.url.includes(self.location.origin) && 'focus' in client) {
+                    return client.focus();
+                }
+            }
+            if (clients.openWindow) {
+                return clients.openWindow('/');
+            }
         })
     );
 });

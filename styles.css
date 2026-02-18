@@ -91,6 +91,30 @@ body {
     margin-top: 2px;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.settings-btn {
+    background: var(--bg-secondary);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    color: var(--text-primary);
+}
+
+.settings-btn:hover {
+    background: var(--bg-tertiary);
+}
+
 .theme-toggle {
     background: var(--bg-secondary);
     border: none;
@@ -119,18 +143,18 @@ body {
     display: flex;
     background: var(--bg-primary);
     padding: 0 16px;
-    gap: 8px;
+    gap: 4px;
     border-bottom: 1px solid var(--border);
     transition: background var(--transition), border-color var(--transition);
 }
 
 .tab {
     flex: 1;
-    padding: 14px 8px;
+    padding: 14px 4px;
     background: none;
     border: none;
     color: var(--text-tertiary);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 500;
     cursor: pointer;
     transition: all var(--transition);
@@ -526,6 +550,10 @@ body {
     transition: background var(--transition);
 }
 
+.modal-content-sm {
+    max-height: auto;
+}
+
 @keyframes slideUp {
     from {
         transform: translateY(100%);
@@ -749,6 +777,48 @@ body {
     transition: all var(--transition);
 }
 
+.history-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.history-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.history-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.history-action-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.history-action-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.history-action-btn.delete-btn:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+}
+
 .history-date {
     font-size: 0.8rem;
     color: var(--text-tertiary);
@@ -766,6 +836,104 @@ body {
     color: var(--text-secondary);
 }
 
+/* Edit History Modal */
+.edit-exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edit-exercise-group {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-sm);
+    padding: 14px;
+}
+
+.edit-exercise-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.edit-set-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.edit-set-row:last-child {
+    margin-bottom: 0;
+}
+
+.edit-set-label {
+    min-width: 44px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.edit-weight,
+.edit-reps {
+    flex: 1;
+    padding: 10px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+    transition: all var(--transition);
+}
+
+.edit-weight:focus,
+.edit-reps:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Confirm Delete */
+.confirm-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-cancel {
+    flex: 1;
+    padding: 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-cancel:hover {
+    background: var(--bg-tertiary);
+}
+
+.btn-danger {
+    flex: 1;
+    padding: 16px;
+    background: var(--danger);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn-danger:hover {
+    opacity: 0.9;
+}
+
 /* Progress */
 .exercise-select {
     width: 100%;
@@ -777,7 +945,7 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     margin-top: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     cursor: pointer;
     transition: all var(--transition);
     -webkit-appearance: none;
@@ -792,13 +960,50 @@ body {
     border-color: var(--accent);
 }
 
+/* Chart Controls */
+.chart-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.chart-type-toggle {
+    display: flex;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.chart-type-btn {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.chart-type-btn.active {
+    background: var(--accent);
+    color: white;
+}
+
 .progress-chart {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    padding: 8px;
-    min-height: 200px;
+    padding: 16px;
+    height: 300px;
+    position: relative;
     transition: all var(--transition);
+}
+
+.progress-chart canvas {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .progress-entry {
@@ -830,6 +1035,245 @@ body {
     color: var(--text-tertiary);
     padding: 48px 20px;
     font-size: 0.95rem;
+}
+
+/* PR Records */
+.pr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.pr-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all var(--transition);
+}
+
+.pr-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+}
+
+.pr-badge svg {
+    width: 22px;
+    height: 22px;
+}
+
+.pr-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pr-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.pr-date {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+}
+
+.pr-value {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.pr-weight {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+}
+
+.pr-reps {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* PR Toast */
+.pr-toast {
+    position: fixed;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #333;
+    padding: 14px 24px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(255, 170, 0, 0.3);
+    transition: top 0.4s ease;
+    font-weight: 600;
+}
+
+.pr-toast.show {
+    top: 24px;
+}
+
+.pr-toast-icon {
+    font-size: 1.5rem;
+}
+
+.pr-toast-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pr-toast-text strong {
+    font-size: 0.95rem;
+}
+
+.pr-toast-text span {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Settings */
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-row-col {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.setting-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-tertiary);
+    border-radius: 28px;
+    transition: all var(--transition);
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: all var(--transition);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--accent);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+    transform: translateX(22px);
+}
+
+/* Time Input */
+.time-input {
+    padding: 10px 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition);
+}
+
+.time-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Day Checkboxes */
+.day-checkboxes {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.day-check {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.day-check input {
+    display: none;
+}
+
+.day-check span {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all var(--transition);
+}
+
+.day-check input:checked + span {
+    background: var(--accent);
+    color: white;
 }
 
 /* Section title */
@@ -887,5 +1331,10 @@ body {
     .exercise-details {
         gap: 10px;
         font-size: 0.8rem;
+    }
+
+    .tab {
+        font-size: 0.75rem;
+        padding: 12px 2px;
     }
 }
