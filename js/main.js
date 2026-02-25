@@ -4,12 +4,12 @@ import { loadTodaySteps } from './services/api.js';
 import { renderExercises, saveExercise, updateCompletedDaysUI } from './ui/exercises.js';
 import { renderHistory } from './ui/history.js';
 import { renderExerciseSelect, renderProgress, setChartType } from './ui/progress.js';
-import { renderStreakCard } from './ui/streak.js';
 import { completeWorkout, updateHeader } from './ui/workout.js';
 import { initTheme, toggleTheme, setTheme } from './ui/theme.js';
 import { closeModal, openModal } from './ui/modal.js';
 import { renderRecords } from './ui/records.js';
 import { saveEditedWorkout, confirmDelete, cancelDelete } from './ui/historyEditor.js';
+import { initTimer } from './ui/timer.js';
 import {
     requestNotificationPermission,
     initNotifications,
@@ -45,9 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.classList.add('active');
             document.getElementById(`${tab.dataset.tab}-tab`).classList.add('active');
 
-            if (tab.dataset.tab === 'streak') {
-                renderStreakCard();
-            } else if (tab.dataset.tab === 'history') {
+            if (tab.dataset.tab === 'history') {
                 renderHistory();
             } else if (tab.dataset.tab === 'progress') {
                 renderExerciseSelect();
@@ -147,13 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     updateHeader();
     renderExercises();
-    renderStreakCard();
-
     // Sync with server
     syncWithServer().then(() => {
         renderExercises();
         updateCompletedDaysUI();
-        renderStreakCard();
     });
 
     // Load steps
@@ -161,4 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Init notifications
     initNotifications();
+
+    // Init timer
+    initTimer();
 });

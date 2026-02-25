@@ -2,7 +2,6 @@ import { routineData } from '../data/routineData.js';
 import { loadSavedData, saveData } from '../services/storage.js';
 import { openModal, closeModal } from './modal.js';
 import { renderHistory } from './history.js';
-import { renderStreakCard } from './streak.js';
 
 let pendingDeleteDayKey = null;
 let pendingDeleteTimestamp = null;
@@ -91,7 +90,6 @@ export function saveEditedWorkout() {
     saveData(data);
     closeModal('editHistoryModal');
     renderHistory();
-    renderStreakCard();
 }
 
 export function deleteWorkout(dayKey, timestamp) {
@@ -124,7 +122,6 @@ export function confirmDelete() {
     saveData(data);
     closeModal('confirmDeleteModal');
     renderHistory();
-    renderStreakCard();
 
     pendingDeleteDayKey = null;
     pendingDeleteTimestamp = null;

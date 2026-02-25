@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python:*)",
       "Bash(pip install:*)",
-      "Bash(node --version:*)"
+      "Bash(node --version:*)",
+      "Bash(curl:*)"
     ]
   }
 }

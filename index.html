@@ -45,7 +45,7 @@
             <button class="tab" data-tab="progress">Progreso</button>
             <button class="tab" data-tab="history">Historial</button>
             <button class="tab" data-tab="records">PRs</button>
-            <button class="tab" data-tab="streak">Racha</button>
+            <button class="tab" data-tab="timer">Timer</button>
         </nav>
 
         <!-- Main Content -->
@@ -99,33 +99,6 @@
                 </button>
             </section>
 
-            <!-- Streak Tab -->
-            <section id="streak-tab" class="tab-content">
-                <div id="streakCard" class="streak-card">
-                    <div class="streak-main">
-                        <div class="streak-fire">
-                            <svg viewBox="0 0 24 24" width="48" height="48">
-                                <defs>
-                                    <linearGradient id="fireGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-                                        <stop offset="0%" style="stop-color:#ff6b35"/>
-                                        <stop offset="100%" style="stop-color:#ffd700"/>
-                                    </linearGradient>
-                                </defs>
-                                <path fill="url(#fireGrad)" d="M13.5,0.67s0.74,2.65,0.74,4.8c0,2.06-1.35,3.73-3.41,3.73-2.07,0-3.63-1.67-3.63-3.73l0.03-0.36C5.21,7.51,4,10.62,4,14c0,4.42,3.58,8,8,8s8-3.58,8-8C20,8.61,17.41,3.8,13.5,0.67zM11.71,19c-1.78,0-3.22-1.4-3.22-3.14c0-1.62,1.05-2.76,2.81-3.12c1.77-0.36,3.6-1.21,4.62-2.58c0.39,1.29,0.59,2.65,0.59,4.04c0,2.65-2.15,4.8-4.8,4.8z"/>
-                            </svg>
-                        </div>
-                        <div class="streak-info">
-                            <span class="streak-count" id="streakCount">0</span>
-                            <span class="streak-label">dias de racha</span>
-                        </div>
-                    </div>
-                    <div class="streak-best" id="streakBest">Mejor racha: 0 dias</div>
-                    <div class="streak-week" id="streakWeek">
-                        <!-- 7 dias renderizados por JS -->
-                    </div>
-                </div>
-            </section>
-
             <!-- History Tab -->
             <section id="history-tab" class="tab-content">
                 <h2>Historial de Entrenamientos</h2>
@@ -156,6 +129,37 @@
                 <h2>Records Personales</h2>
                 <div id="prList" class="pr-list">
                     <!-- PR cards will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Timer Tab -->
+            <section id="timer-tab" class="tab-content">
+                <div class="timer-container">
+                    <div class="timer-display">
+                        <svg class="timer-ring" viewBox="0 0 200 200" width="200" height="200">
+                            <circle class="timer-ring-bg" cx="100" cy="100" r="88" />
+                            <circle class="timer-ring-progress" id="timerRingProgress" cx="100" cy="100" r="88" />
+                        </svg>
+                        <div class="timer-time" id="timerDisplay">1:30</div>
+                    </div>
+
+                    <div class="timer-presets">
+                        <button class="timer-preset-btn" data-seconds="30">30s</button>
+                        <button class="timer-preset-btn" data-seconds="60">1min</button>
+                        <button class="timer-preset-btn active" data-seconds="90">90s</button>
+                        <button class="timer-preset-btn" data-seconds="120">2min</button>
+                        <button class="timer-preset-btn" data-seconds="180">3min</button>
+                    </div>
+
+                    <div class="timer-custom">
+                        <input type="number" id="timerCustomInput" placeholder="Segundos personalizados" min="1" max="3600">
+                        <button id="timerCustomSet" class="timer-custom-btn">Aplicar</button>
+                    </div>
+
+                    <div class="timer-controls">
+                        <button id="timerReset" class="timer-btn timer-btn-secondary">Reiniciar</button>
+                        <button id="timerStartPause" class="timer-btn timer-btn-primary">Iniciar</button>
+                    </div>
                 </div>
             </section>
         </main>

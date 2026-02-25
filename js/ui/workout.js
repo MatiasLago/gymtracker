@@ -2,7 +2,6 @@ import { state } from '../state/appState.js';
 import { loadSavedData, saveData } from '../services/storage.js';
 import { getDayKey, updateCompletedDaysUI } from './exercises.js';
 import { renderHistory } from './history.js';
-import { renderStreakCard } from './streak.js';
 
 export function completeWorkout() {
     const data = loadSavedData();
@@ -21,11 +20,6 @@ export function completeWorkout() {
     saveData(data);
     updateCompletedDaysUI();
     renderHistory();
-    renderStreakCard();
-
-    const streakCard = document.getElementById('streakCard');
-    streakCard.classList.add('streak-celebrate');
-    setTimeout(() => streakCard.classList.remove('streak-celebrate'), 600);
 
     alert('Entrenamiento completado!');
 }
