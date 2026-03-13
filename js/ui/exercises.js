@@ -40,17 +40,20 @@ export function renderExercises() {
     container.innerHTML = exercises.map((exercise, index) => {
         const exerciseData = dayData[index] || {};
         const isCompleted = exerciseData.completed;
+        const isSkipped = exerciseData.skipped;
         const lastWeight = exerciseData.sets?.[0]?.weight || '';
 
+        const cardClass = isSkipped ? 'skipped' : (isCompleted ? 'completed' : '');
+
         return `
-            <div class="exercise-card ${isCompleted ? 'completed' : ''}" data-index="${index}">
+            <div class="exercise-card ${cardClass}" data-index="${index}">
                 <div class="exercise-name">${exercise.name}</div>
                 <div class="exercise-details">
                     <span>${exercise.sets} sets</span>
                     <span>${exercise.reps} reps</span>
                     <span>RPE ${exercise.rpe}</span>
                 </div>
-                ${lastWeight ? `<div class="exercise-weight">Ultimo: ${lastWeight} kg</div>` : ''}
+                ${isSkipped ? '<div class="skip-badge">Saltado</div>' : (lastWeight ? `<div class="exercise-weight">Ultimo: ${lastWeight} kg</div>` : '')}
             </div>
         `;
     }).join('');
@@ -98,6 +101,14 @@ export function openExerciseModal(index) {
     }
 
     document.getElementById('exerciseNotes').value = exerciseData.notes || '';
+
+    const skipBtn = document.getElementById('skipExercise');
+    if (exerciseData.skipped) {
+        skipBtn.textContent = 'Restaurar ejercicio';
+    } else {
+        skipBtn.textContent = 'Saltar ejercicio';
+    }
+
     document.getElementById('exerciseModal').classList.add('active');
 }
 
@@ -141,6 +152,37 @@ export function saveExercise() {
         }
     }
 
+    closeModal('exerciseModal');
+    renderExercises();
+}
+
+export function skipExercise() {
+    const data = loadSavedData();
+    const dayKey = getDayKey();
+
+    if (!data.workouts[dayKey]) {
+        data.workouts[dayKey] = {};
+    }
+
+    const existing = data.workouts[dayKey][state.currentExerciseIndex] || {};
+    const isCurrentlySkipped = existing.skipped;
+
+    if (isCurrentlySkipped) {
+        // Restaurar: quitar el estado skipped
+        delete data.workouts[dayKey][state.currentExerciseIndex].skipped;
+        if (!data.workouts[dayKey][state.currentExerciseIndex].sets?.length) {
+            delete data.workouts[dayKey][state.currentExerciseIndex];
+        }
+    } else {
+        // Saltar: limpiar datos y marcar como saltado
+        data.workouts[dayKey][state.currentExerciseIndex] = {
+            skipped: true,
+            completed: false,
+            date: new Date().toISOString()
+        };
+    }
+
+    saveData(data);
     closeModal('exerciseModal');
     renderExercises();
 }

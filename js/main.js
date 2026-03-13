@@ -1,7 +1,7 @@
 import { state } from './state/appState.js';
 import { syncWithServer } from './services/storage.js';
 import { loadTodaySteps } from './services/api.js';
-import { renderExercises, saveExercise, updateCompletedDaysUI } from './ui/exercises.js';
+import { renderExercises, saveExercise, skipExercise, updateCompletedDaysUI } from './ui/exercises.js';
 import { renderHistory } from './ui/history.js';
 import { renderExerciseSelect, renderProgress, setChartType } from './ui/progress.js';
 import { completeWorkout, updateHeader } from './ui/workout.js';
@@ -88,6 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Save exercise
     document.getElementById('saveExercise').addEventListener('click', saveExercise);
+
+    // Skip exercise
+    document.getElementById('skipExercise').addEventListener('click', skipExercise);
 
     // Complete workout
     document.getElementById('completeWorkout').addEventListener('click', completeWorkout);

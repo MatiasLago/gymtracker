@@ -4,7 +4,7 @@ export const routineData = {
         semana1: {
             dia1: [
                 { name: "Sentadilla", sets: 3, reps: "7", rpe: 6 },
-                { name: "Press de Banca", sets: 3, reps: "7", rpe: 6 },
+                { name: "Press Plano", sets: 3, reps: "7", rpe: 6 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "8", rpe: 6 },
                 { name: "Press Inclinado c/mancuernas", sets: 2, reps: "15", rpe: 7 },
                 { name: "Vuelos laterales", sets: 2, reps: "15-20", rpe: 8 }
@@ -13,14 +13,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 3, reps: "7", rpe: 6 },
                 { name: "Press Militar c/barra", sets: 3, reps: "7", rpe: 6 },
                 { name: "Remo c/barra", sets: 3, reps: "10", rpe: 6 },
-                { name: "Percha al Pecho", sets: 3, reps: "15", rpe: 7 },
+                { name: "Polea al Pecho", sets: 3, reps: "15", rpe: 7 },
                 { name: "SS de Brazos a eleccion", sets: 3, reps: "12-15", rpe: 8 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "10", rpe: 6 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "10", rpe: 6 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "10", rpe: 6 },
                 { name: "Press de Piernas", sets: 2, reps: "12", rpe: 7 },
-                { name: "Push Ups c/deficit", sets: 2, reps: "AMRAP", rpe: 8 },
+                { name: "Flexiones c/deficit", sets: 2, reps: "AMRAP", rpe: 8 },
                 { name: "Vuelos laterales", sets: 3, reps: "12-15", rpe: 8 }
             ],
             dia4: [
@@ -34,7 +34,7 @@ export const routineData = {
         semana2: {
             dia1: [
                 { name: "Sentadilla", sets: 3, reps: "7", rpe: 7 },
-                { name: "Press de Banca", sets: 3, reps: "7", rpe: 7 },
+                { name: "Press Plano", sets: 3, reps: "7", rpe: 7 },
                 { name: "Estocadas", sets: 3, reps: "8", rpe: 7 },
                 { name: "Press Inclinado c/mancuernas", sets: 2, reps: "15", rpe: 8 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -43,14 +43,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 3, reps: "7", rpe: 7 },
                 { name: "Press Militar c/barra", sets: 3, reps: "7", rpe: 7 },
                 { name: "Remo c/barra", sets: 3, reps: "10", rpe: 7 },
-                { name: "Percha al Pecho", sets: 3, reps: "15", rpe: 8 },
+                { name: "Polea al Pecho", sets: 3, reps: "15", rpe: 8 },
                 { name: "SS de Brazos a eleccion", sets: 3, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "10", rpe: 7 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "10", rpe: 7 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "10", rpe: 7 },
                 { name: "Press de Piernas", sets: 3, reps: "12", rpe: 8 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "12-15", rpe: 9 }
             ],
             dia4: [
@@ -64,7 +64,7 @@ export const routineData = {
         semana3: {
             dia1: [
                 { name: "Sentadilla", sets: 3, reps: "7", rpe: 7.5 },
-                { name: "Press de Banca", sets: 4, reps: "7", rpe: 7.5 },
+                { name: "Press Plano", sets: 4, reps: "7", rpe: 7.5 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "8", rpe: 8 },
                 { name: "Press Inclinado c/mancuernas", sets: 2, reps: "15", rpe: 8 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -73,14 +73,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 3, reps: "7", rpe: 7.5 },
                 { name: "Press Militar c/barra", sets: 4, reps: "7", rpe: 7.5 },
                 { name: "Remo c/barra", sets: 3, reps: "10", rpe: 8 },
-                { name: "Percha al Pecho", sets: 3, reps: "15", rpe: 9 },
+                { name: "Polea al Pecho", sets: 3, reps: "15", rpe: 9 },
                 { name: "SS de Brazos a eleccion", sets: 4, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "10", rpe: 7.5 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "10", rpe: 7.5 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "10", rpe: 7.5 },
                 { name: "Press de Piernas", sets: 3, reps: "12", rpe: 9 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "12-15", rpe: 9 }
             ],
             dia4: [
@@ -94,7 +94,7 @@ export const routineData = {
         semana4: {
             dia1: [
                 { name: "Sentadilla", sets: 3, reps: "7", rpe: 8 },
-                { name: "Press de Banca", sets: 4, reps: "7", rpe: 8 },
+                { name: "Press Plano", sets: 4, reps: "7", rpe: 8 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "8", rpe: 9 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "15", rpe: 9 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -103,14 +103,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 3, reps: "7", rpe: 8 },
                 { name: "Press Militar c/barra", sets: 4, reps: "7", rpe: 8 },
                 { name: "Remo c/barra", sets: 3, reps: "10", rpe: 8 },
-                { name: "Percha al Pecho", sets: 3, reps: "15", rpe: 9 },
+                { name: "Polea al Pecho", sets: 3, reps: "15", rpe: 9 },
                 { name: "SS de Brazos a eleccion", sets: 4, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "10", rpe: 8 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "10", rpe: 8 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "10", rpe: 8 },
                 { name: "Press de Piernas", sets: 3, reps: "12", rpe: 9 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "12-15", rpe: 9 }
             ],
             dia4: [
@@ -126,7 +126,7 @@ export const routineData = {
         semana1: {
             dia1: [
                 { name: "Sentadilla", sets: 4, reps: "5", rpe: 6 },
-                { name: "Press de Banca", sets: 4, reps: "5", rpe: 6 },
+                { name: "Press Plano", sets: 4, reps: "5", rpe: 6 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "10", rpe: 7 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "12", rpe: 7 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 8 }
@@ -135,14 +135,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 4, reps: "5", rpe: 6 },
                 { name: "Press Militar c/barra", sets: 4, reps: "5", rpe: 6 },
                 { name: "Remo c/barra", sets: 3, reps: "8", rpe: 7 },
-                { name: "Percha al Pecho", sets: 3, reps: "12", rpe: 7 },
+                { name: "Polea al Pecho", sets: 3, reps: "12", rpe: 7 },
                 { name: "SS de Brazos a eleccion", sets: 3, reps: "12-15", rpe: 8 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "8", rpe: 6 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "8", rpe: 6 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "8", rpe: 6 },
                 { name: "Press de Piernas", sets: 3, reps: "10", rpe: 7 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 8 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 8 },
                 { name: "Vuelos laterales", sets: 3, reps: "15-20", rpe: 8 }
             ],
             dia4: [
@@ -156,7 +156,7 @@ export const routineData = {
         semana2: {
             dia1: [
                 { name: "Sentadilla", sets: 4, reps: "5", rpe: 7 },
-                { name: "Press de Banca", sets: 4, reps: "5", rpe: 7 },
+                { name: "Press Plano", sets: 4, reps: "5", rpe: 7 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "10", rpe: 8 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "12", rpe: 8 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -165,14 +165,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 4, reps: "5", rpe: 7 },
                 { name: "Press Militar c/barra", sets: 4, reps: "5", rpe: 7 },
                 { name: "Remo c/barra", sets: 3, reps: "8", rpe: 8 },
-                { name: "Percha al Pecho", sets: 3, reps: "12", rpe: 8 },
+                { name: "Polea al Pecho", sets: 3, reps: "12", rpe: 8 },
                 { name: "SS de Brazos a eleccion", sets: 3, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "8", rpe: 7 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "8", rpe: 7 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "8", rpe: 7 },
                 { name: "Press de Piernas", sets: 3, reps: "10", rpe: 8 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "15-20", rpe: 9 }
             ],
             dia4: [
@@ -186,7 +186,7 @@ export const routineData = {
         semana3: {
             dia1: [
                 { name: "Sentadilla", sets: 4, reps: "5", rpe: 7.5 },
-                { name: "Press de Banca", sets: 5, reps: "5", rpe: 7.5 },
+                { name: "Press Plano", sets: 5, reps: "5", rpe: 7.5 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "10", rpe: 8 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "12", rpe: 8 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -195,14 +195,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 4, reps: "5", rpe: 7.5 },
                 { name: "Press Militar c/barra", sets: 5, reps: "5", rpe: 7.5 },
                 { name: "Remo c/barra", sets: 4, reps: "8", rpe: 8 },
-                { name: "Percha al Pecho", sets: 3, reps: "12", rpe: 9 },
+                { name: "Polea al Pecho", sets: 3, reps: "12", rpe: 9 },
                 { name: "SS de Brazos a eleccion", sets: 4, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 4, reps: "8", rpe: 7.5 },
-                { name: "Press de Banca (toma cerrada)", sets: 4, reps: "8", rpe: 7.5 },
+                { name: "Press Plano (toma cerrada)", sets: 4, reps: "8", rpe: 7.5 },
                 { name: "Press de Piernas", sets: 3, reps: "10", rpe: 9 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "15-20", rpe: 9 }
             ],
             dia4: [
@@ -216,7 +216,7 @@ export const routineData = {
         semana4: {
             dia1: [
                 { name: "Sentadilla", sets: 4, reps: "5", rpe: 8 },
-                { name: "Press de Banca", sets: 5, reps: "5", rpe: 8 },
+                { name: "Press Plano", sets: 5, reps: "5", rpe: 8 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "10", rpe: 9 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "12", rpe: 9 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -225,14 +225,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 4, reps: "5", rpe: 8 },
                 { name: "Press Militar c/barra", sets: 5, reps: "5", rpe: 8 },
                 { name: "Remo c/barra", sets: 4, reps: "8", rpe: 8 },
-                { name: "Percha al Pecho", sets: 3, reps: "12", rpe: 9 },
+                { name: "Polea al Pecho", sets: 3, reps: "12", rpe: 9 },
                 { name: "SS de Brazos a eleccion", sets: 4, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 4, reps: "8", rpe: 8 },
-                { name: "Press de Banca (toma cerrada)", sets: 4, reps: "8", rpe: 8 },
+                { name: "Press Plano (toma cerrada)", sets: 4, reps: "8", rpe: 8 },
                 { name: "Press de Piernas", sets: 3, reps: "10", rpe: 9 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "15-20", rpe: 9 }
             ],
             dia4: [
@@ -248,7 +248,7 @@ export const routineData = {
         semana1: {
             dia1: [
                 { name: "Sentadilla", sets: 5, reps: "3", rpe: 7 },
-                { name: "Press de Banca", sets: 5, reps: "3", rpe: 7 },
+                { name: "Press Plano", sets: 5, reps: "3", rpe: 7 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "8", rpe: 7 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "10", rpe: 7 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 8 }
@@ -257,14 +257,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 5, reps: "3", rpe: 7 },
                 { name: "Press Militar c/barra", sets: 5, reps: "3", rpe: 7 },
                 { name: "Remo c/barra", sets: 4, reps: "6", rpe: 7 },
-                { name: "Percha al Pecho", sets: 3, reps: "10", rpe: 7 },
+                { name: "Polea al Pecho", sets: 3, reps: "10", rpe: 7 },
                 { name: "SS de Brazos a eleccion", sets: 3, reps: "12-15", rpe: 8 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "6", rpe: 7 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "6", rpe: 7 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "6", rpe: 7 },
                 { name: "Press de Piernas", sets: 3, reps: "8", rpe: 7 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 8 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 8 },
                 { name: "Vuelos laterales", sets: 3, reps: "15-20", rpe: 8 }
             ],
             dia4: [
@@ -278,7 +278,7 @@ export const routineData = {
         semana2: {
             dia1: [
                 { name: "Sentadilla", sets: 5, reps: "3", rpe: 7.5 },
-                { name: "Press de Banca", sets: 5, reps: "3", rpe: 7.5 },
+                { name: "Press Plano", sets: 5, reps: "3", rpe: 7.5 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "8", rpe: 8 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "10", rpe: 8 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -287,14 +287,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 5, reps: "3", rpe: 7.5 },
                 { name: "Press Militar c/barra", sets: 5, reps: "3", rpe: 7.5 },
                 { name: "Remo c/barra", sets: 4, reps: "6", rpe: 8 },
-                { name: "Percha al Pecho", sets: 3, reps: "10", rpe: 8 },
+                { name: "Polea al Pecho", sets: 3, reps: "10", rpe: 8 },
                 { name: "SS de Brazos a eleccion", sets: 3, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 3, reps: "6", rpe: 7.5 },
-                { name: "Press de Banca (toma cerrada)", sets: 3, reps: "6", rpe: 7.5 },
+                { name: "Press Plano (toma cerrada)", sets: 3, reps: "6", rpe: 7.5 },
                 { name: "Press de Piernas", sets: 3, reps: "8", rpe: 8 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "15-20", rpe: 9 }
             ],
             dia4: [
@@ -308,7 +308,7 @@ export const routineData = {
         semana3: {
             dia1: [
                 { name: "Sentadilla", sets: 5, reps: "3", rpe: 8 },
-                { name: "Press de Banca", sets: 6, reps: "3", rpe: 8 },
+                { name: "Press Plano", sets: 6, reps: "3", rpe: 8 },
                 { name: "Sentadilla Bulgara", sets: 3, reps: "8", rpe: 8 },
                 { name: "Press Inclinado c/mancuernas", sets: 3, reps: "10", rpe: 8 },
                 { name: "Face Pull", sets: 3, reps: "15-20", rpe: 9 }
@@ -317,14 +317,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 5, reps: "3", rpe: 8 },
                 { name: "Press Militar c/barra", sets: 6, reps: "3", rpe: 8 },
                 { name: "Remo c/barra", sets: 4, reps: "6", rpe: 8 },
-                { name: "Percha al Pecho", sets: 3, reps: "10", rpe: 9 },
+                { name: "Polea al Pecho", sets: 3, reps: "10", rpe: 9 },
                 { name: "SS de Brazos a eleccion", sets: 4, reps: "12-15", rpe: 9 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 4, reps: "6", rpe: 8 },
-                { name: "Press de Banca (toma cerrada)", sets: 4, reps: "6", rpe: 8 },
+                { name: "Press Plano (toma cerrada)", sets: 4, reps: "6", rpe: 8 },
                 { name: "Press de Piernas", sets: 3, reps: "8", rpe: 9 },
-                { name: "Push Ups c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
+                { name: "Flexiones c/deficit", sets: 3, reps: "AMRAP", rpe: 9 },
                 { name: "Vuelos laterales", sets: 3, reps: "15-20", rpe: 9 }
             ],
             dia4: [
@@ -338,7 +338,7 @@ export const routineData = {
         semana4: {
             dia1: [
                 { name: "Sentadilla", sets: 3, reps: "2", rpe: 9 },
-                { name: "Press de Banca", sets: 3, reps: "2", rpe: 9 },
+                { name: "Press Plano", sets: 3, reps: "2", rpe: 9 },
                 { name: "Sentadilla Bulgara", sets: 2, reps: "8", rpe: 7 },
                 { name: "Press Inclinado c/mancuernas", sets: 2, reps: "10", rpe: 7 },
                 { name: "Face Pull", sets: 2, reps: "15-20", rpe: 7 }
@@ -347,14 +347,14 @@ export const routineData = {
                 { name: "Peso Muerto", sets: 3, reps: "2", rpe: 9 },
                 { name: "Press Militar c/barra", sets: 3, reps: "2", rpe: 9 },
                 { name: "Remo c/barra", sets: 2, reps: "6", rpe: 7 },
-                { name: "Percha al Pecho", sets: 2, reps: "10", rpe: 7 },
+                { name: "Polea al Pecho", sets: 2, reps: "10", rpe: 7 },
                 { name: "SS de Brazos a eleccion", sets: 2, reps: "12-15", rpe: 7 }
             ],
             dia3: [
                 { name: "Sentadilla", sets: 2, reps: "4", rpe: 7 },
-                { name: "Press de Banca (toma cerrada)", sets: 2, reps: "4", rpe: 7 },
+                { name: "Press Plano (toma cerrada)", sets: 2, reps: "4", rpe: 7 },
                 { name: "Press de Piernas", sets: 2, reps: "8", rpe: 7 },
-                { name: "Push Ups c/deficit", sets: 2, reps: "AMRAP", rpe: 7 },
+                { name: "Flexiones c/deficit", sets: 2, reps: "AMRAP", rpe: 7 },
                 { name: "Vuelos laterales", sets: 2, reps: "15-20", rpe: 7 }
             ],
             dia4: [

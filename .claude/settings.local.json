@@ -4,7 +4,8 @@
       "Bash(python:*)",
       "Bash(pip install:*)",
       "Bash(node --version:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(ipconfig | grep -A 1 \"IPv4\")"
     ]
   }
 }

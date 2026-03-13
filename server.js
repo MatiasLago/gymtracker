@@ -70,30 +70,47 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    // Endpoint para pasos desde iPhone Shortcut
-    if (req.url === '/api/steps' && req.method === 'POST') {
+    // Endpoint para Health Auto Export (iPhone)
+    // Health Auto Export manda: { "data": { "metrics": [{ "name": "step_count", "data": [{ "date": "YYYY-MM-DD ...", "qty": 1234 }] }] } }
+    if (req.url === '/api/health' && req.method === 'POST') {
         let body = '';
         req.on('data', chunk => body += chunk);
         req.on('end', () => {
             try {
-                const { steps, date } = JSON.parse(body);
-                const data = loadData();
+                const payload = JSON.parse(body);
+                const metrics = payload?.data?.metrics || payload?.metrics || [];
+                const appData = loadData();
+                if (!appData.steps) appData.steps = {};
 
-                if (!data.steps) data.steps = {};
+                let saved = 0;
 
-                const dateKey = date || new Date().toISOString().split('T')[0];
-                data.steps[dateKey] = {
-                    count: parseInt(steps),
-                    timestamp: new Date().toISOString()
-                };
+                metrics.forEach(metric => {
+                    if (metric.name !== 'step_count') return;
 
-                saveData(data);
+                    (metric.data || []).forEach(entry => {
+                        const qty = Math.round(entry.qty || 0);
+                        if (!qty) return;
+
+                        // La fecha viene como "2024-01-15 00:00:00 +0000" o "2024-01-15"
+                        const dateKey = String(entry.date).split(' ')[0];
+                        if (!dateKey.match(/^\d{4}-\d{2}-\d{2}$/)) return;
+
+                        appData.steps[dateKey] = {
+                            count: qty,
+                            timestamp: new Date().toISOString()
+                        };
+                        saved++;
+                    });
+                });
+
+                saveData(appData);
+                console.log(`Health Auto Export: ${saved} dias de pasos guardados`);
                 res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ success: true, date: dateKey, steps: steps }));
-                console.log(`Pasos guardados: ${steps} para ${dateKey}`);
+                res.end(JSON.stringify({ success: true, saved }));
             } catch (e) {
+                console.error('Error procesando health data:', e.message);
                 res.writeHead(400, { 'Content-Type': 'application/json' });
-                res.end(JSON.stringify({ error: 'Invalid data' }));
+                res.end(JSON.stringify({ error: 'Invalid data', detail: e.message }));
             }
         });
         return;
