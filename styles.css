@@ -1432,6 +1432,151 @@ body {
     border: 1.5px solid var(--border);
 }
 
+/* Streak mini (workout tab) */
+.streak-card-mini {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    border: 1.5px solid var(--border);
+}
+
+.streak-count-mini {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.streak-label-mini {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Racha tab - stats */
+.racha-stats {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.racha-stat-card {
+    flex: 1;
+    background: var(--bg-secondary);
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.racha-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.racha-stat-label {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+/* Month navigation */
+.racha-month-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.racha-month-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: capitalize;
+}
+
+.racha-nav-btn {
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition);
+}
+
+.racha-nav-btn:hover {
+    background: var(--bg-tertiary);
+}
+
+/* Calendar grid */
+.racha-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.racha-day-name {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 2px 0;
+}
+
+.racha-calendar-days {
+    margin-top: 6px;
+}
+
+.racha-cal-day {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 2px solid transparent;
+    transition: all 0.15s ease;
+}
+
+.racha-cal-day.has-workout {
+    background: var(--success);
+    color: #fff;
+    font-weight: 600;
+    border-color: var(--success);
+    box-shadow: 0 0 6px color-mix(in srgb, var(--success) 35%, transparent);
+}
+
+.racha-cal-day.is-today {
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.racha-cal-day.is-today.has-workout {
+    border-color: var(--success);
+    color: #fff;
+}
+
+.racha-cal-day.empty {
+    pointer-events: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 380px) {
     .day-btn {

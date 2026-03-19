@@ -61,59 +61,73 @@ export function calculateStreak() {
     return { currentStreak, bestStreak, lastWorkoutDate: dates[0] };
 }
 
-export function getWeekCalendarData() {
+
+export function renderStreakCard() {
+    const { currentStreak } = calculateStreak();
+    document.getElementById('streakCount').textContent = currentStreak;
+}
+
+let calendarMonth = null;
+let calendarYear = null;
+
+export function renderRachaTab() {
+    const { currentStreak, bestStreak } = calculateStreak();
+    document.getElementById('rachaCurrentStreak').textContent = currentStreak;
+    document.getElementById('rachaBestStreak').textContent = bestStreak;
+
+    const now = new Date();
+    if (calendarMonth === null) calendarMonth = now.getMonth();
+    if (calendarYear === null) calendarYear = now.getFullYear();
+
+    renderMonthCalendar(calendarYear, calendarMonth);
+
+    document.getElementById('rachaPrevMonth').onclick = () => {
+        calendarMonth--;
+        if (calendarMonth < 0) { calendarMonth = 11; calendarYear--; }
+        renderMonthCalendar(calendarYear, calendarMonth);
+    };
+    document.getElementById('rachaNextMonth').onclick = () => {
+        calendarMonth++;
+        if (calendarMonth > 11) { calendarMonth = 0; calendarYear++; }
+        renderMonthCalendar(calendarYear, calendarMonth);
+    };
+}
+
+function renderMonthCalendar(year, month) {
     const data = loadSavedData();
     const dateSet = new Set();
-
     Object.values(data.completedDays || {}).forEach(completions => {
-        completions.forEach(c => {
-            if (c.date) dateSet.add(c.date);
-        });
+        completions.forEach(c => { if (c.date) dateSet.add(c.date); });
     });
+
+    const monthNames = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    document.getElementById('rachaMonthTitle').textContent = `${monthNames[month]} ${year}`;
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const dayOfWeek = today.getDay();
-    const monday = new Date(today);
-    monday.setDate(today.getDate() - ((dayOfWeek + 6) % 7));
 
-    const dayLabels = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
-    const week = [];
+    const firstDay = new Date(year, month, 1);
+    // Monday-based: 0=Mon ... 6=Sun
+    const startOffset = (firstDay.getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    for (let i = 0; i < 7; i++) {
-        const d = new Date(monday);
-        d.setDate(monday.getDate() + i);
-        const dateStr = d.toISOString().split('T')[0];
-        const isToday = d.getTime() === today.getTime();
-        week.push({
-            dayLabel: dayLabels[i],
-            date: dateStr,
-            hasWorkout: dateSet.has(dateStr),
-            isToday
-        });
+    const container = document.getElementById('rachaCalendarDays');
+    let html = '';
+
+    for (let i = 0; i < startOffset; i++) {
+        html += `<div class="racha-cal-day empty"></div>`;
     }
 
-    return week;
-}
+    for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(year, month, d);
+        const dateStr = date.toISOString().split('T')[0];
+        const isToday = date.getTime() === today.getTime();
+        const hasWorkout = dateSet.has(dateStr);
+        const classes = ['racha-cal-day'];
+        if (hasWorkout) classes.push('has-workout');
+        if (isToday) classes.push('is-today');
+        html += `<div class="${classes.join(' ')}">${d}</div>`;
+    }
 
-export function renderStreakCard() {
-    const { currentStreak, bestStreak } = calculateStreak();
-    const weekData = getWeekCalendarData();
-
-    document.getElementById('streakCount').textContent = currentStreak;
-    document.getElementById('streakBest').textContent = `Mejor racha: ${bestStreak} dias`;
-
-    const weekContainer = document.getElementById('streakWeek');
-    weekContainer.innerHTML = weekData.map(day => {
-        const classes = ['streak-day'];
-        if (day.hasWorkout) classes.push('active');
-        if (day.isToday) classes.push('today');
-
-        return `
-            <div class="${classes.join(' ')}">
-                <span class="streak-day-label">${day.dayLabel}</span>
-                <div class="streak-day-dot"></div>
-            </div>
-        `;
-    }).join('');
+    container.innerHTML = html;
 }

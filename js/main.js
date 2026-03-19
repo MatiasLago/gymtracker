@@ -1,6 +1,5 @@
 import { state } from './state/appState.js';
 import { syncWithServer } from './services/storage.js';
-import { loadTodaySteps } from './services/api.js';
 import { renderExercises, saveExercise, skipExercise, updateCompletedDaysUI } from './ui/exercises.js';
 import { renderHistory } from './ui/history.js';
 import { renderExerciseSelect, renderProgress, setChartType } from './ui/progress.js';
@@ -16,6 +15,7 @@ import {
     renderSettingsModal,
     saveSettingsFromModal
 } from './services/notifications.js';
+import { renderStreakCard, renderRachaTab } from './ui/streak.js';
 
 // Initialize theme immediately
 initTheme();
@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderProgress();
             } else if (tab.dataset.tab === 'records') {
                 renderRecords();
+            } else if (tab.dataset.tab === 'racha') {
+                renderRachaTab();
             }
         });
     });
@@ -148,14 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial render
     updateHeader();
     renderExercises();
+    renderStreakCard();
     // Sync with server
     syncWithServer().then(() => {
         renderExercises();
         updateCompletedDaysUI();
+        renderStreakCard();
     });
-
-    // Load steps
-    loadTodaySteps();
 
     // Init notifications
     initNotifications();
